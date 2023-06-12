@@ -1,7 +1,7 @@
 /*
  * @Date: 2019-02-04 23:57:04
  * @LastEditors: 李鹏玺 2899952565@qq.com
- * @LastEditTime: 2023-06-09 19:11:43
+ * @LastEditTime: 2023-06-12 17:19:00
  * @FilePath: /vue-2.6.0/src/platforms/web/entry-runtime-with-compiler.js
  * @description: 
  */
@@ -27,6 +27,7 @@ Vue.prototype.$mount = function (
 ): Component {
   el = el && query(el)
   /* istanbul ignore if */
+  // el不能是 body 或 html
   if (el === document.body || el === document.documentElement) {
     process.env.NODE_ENV !== 'production' && warn(
       `Do not mount Vue to <html> or <body> - mount to normal elements instead.`
@@ -36,10 +37,13 @@ Vue.prototype.$mount = function (
 
   const options = this.$options
   // resolve template/el and convert to render function
+  // 如果没有render函数 走template
   if (!options.render) {
     let template = options.template
+    // 根据不同情况 重新给template赋值
     if (template) {
       if (typeof template === 'string') {
+        // 判断 template 是不是 id
         if (template.charAt(0) === '#') {
           template = idToTemplate(template)
           /* istanbul ignore if */
