@@ -1,7 +1,7 @@
 /*
  * @Date: 2019-02-04 23:57:04
  * @LastEditors: 李鹏玺 2899952565@qq.com
- * @LastEditTime: 2023-06-12 17:19:00
+ * @LastEditTime: 2023-06-13 15:23:02
  * @FilePath: /vue-2.6.0/src/platforms/web/entry-runtime-with-compiler.js
  * @description: 
  */
@@ -15,6 +15,8 @@ import Vue from './runtime/index'
 import { query } from './util/index'
 import { compileToFunctions } from './compiler/index'
 import { shouldDecodeNewlines, shouldDecodeNewlinesForHref } from './util/compat'
+
+// 根据 ID 获取 innerHTML
 const idToTemplate = cached(id => {
   const el = query(id)
   return el && el.innerHTML

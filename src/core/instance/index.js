@@ -1,7 +1,7 @@
 /*
  * @Date: 2019-02-04 23:57:04
  * @LastEditors: 李鹏玺 2899952565@qq.com
- * @LastEditTime: 2023-06-12 17:49:12
+ * @LastEditTime: 2023-06-13 14:51:20
  * @FilePath: /vue-2.6.0/src/core/instance/index.js
  * @description: 构造函数的入口文件
  */
@@ -22,15 +22,15 @@ function Vue (options) {
   this._init(options)
 }
 
-// init方法 初始化
+// vm 的 _init() 方法，初始化 vm
 initMixin(Vue)
-// 响应式
+// 响应式 $data/$props/$set/$delete/$watch
 stateMixin(Vue)
-// eventbus
+// eventbus $on/$once/$off/$emit
 eventsMixin(Vue)
-// 生命周期钩子
+// 生命周期钩子 _update/$forceUpdate/$destroy
 lifecycleMixin(Vue)
-// render函数 nextTick
+// render函数 $nextTick/render
 renderMixin(Vue)
 
 export default Vue

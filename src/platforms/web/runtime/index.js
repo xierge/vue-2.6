@@ -1,3 +1,10 @@
+/*
+ * @Date: 2023-06-12 18:29:56
+ * @LastEditors: 李鹏玺 2899952565@qq.com
+ * @LastEditTime: 2023-06-13 14:01:16
+ * @FilePath: /vue-2.6.0/src/platforms/web/runtime/index.js
+ * @description: 
+ */
 /* @flow */
 
 import Vue from 'core/index'
@@ -19,15 +26,21 @@ import { patch } from './patch'
 import platformDirectives from './directives/index'
 import platformComponents from './components/index'
 
-// install platform specific utils
+// 一些属性对应的标签 例如: input ==> value
 Vue.config.mustUseProp = mustUseProp
+// 是否是html标签或者svg标签
 Vue.config.isReservedTag = isReservedTag
+// 是否是 class/style 属性
 Vue.config.isReservedAttr = isReservedAttr
+// 获取标签别名
 Vue.config.getTagNamespace = getTagNamespace
+// 判断标签是否是未定义
 Vue.config.isUnknownElement = isUnknownElement
 
 // install platform runtime directives & components
+// 自定义指令 merge 到 Vue 上  v-model v-show
 extend(Vue.options.directives, platformDirectives)
+// 自定义组件 merge 到 Vue 上  Transition TransitionGroups
 extend(Vue.options.components, platformComponents)
 
 // install platform patch function
