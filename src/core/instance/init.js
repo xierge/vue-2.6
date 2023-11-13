@@ -20,14 +20,7 @@ export function initMixin (Vue: Class<Component>) {
     vm._uid = uid++
 
     let startTag, endTag
-    /* istanbul ignore if */
-    if (process.env.NODE_ENV !== 'production' && config.performance && mark) {
-      startTag = `vue-perf-start:${vm._uid}`
-      endTag = `vue-perf-end:${vm._uid}`
-      mark(startTag)
-    }
 
-    // a flag to avoid this being observed
     // 如果是 Vue 实例不需要被 observe
     vm._isVue = true
     // merge options
