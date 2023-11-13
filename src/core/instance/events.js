@@ -50,7 +50,12 @@ export function updateComponentListeners (
 }
 
 export function eventsMixin (Vue: Class<Component>) {
-  const hookRE = /^hook:/
+  const hookRE = /^hook:/ 
+  /**
+   * @description: 注册绑定事件
+   * @param: eventName 事件名称
+   * @param: fn 触发后执行的函数
+   */
   Vue.prototype.$on = function (event: string | Array<string>, fn: Function): Component {
     const vm: Component = this
     if (Array.isArray(event)) {
