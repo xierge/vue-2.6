@@ -1,8 +1,8 @@
 /*
  * @Date: 2019-02-04 23:57:04
- * @LastEditors: 李鹏玺 2899952565@qq.com
- * @LastEditTime: 2023-06-13 14:51:20
- * @FilePath: /vue-2.6.0/src/core/instance/index.js
+ * @LastEditors: Carlos 2899952565@qq.com
+ * @LastEditTime: 2023-11-20 10:49:42
+ * @FilePath: /vue-2.6/src/core/instance/index.js
  * @description: 构造函数的入口文件
  */
 import { initMixin } from './init'
@@ -13,7 +13,7 @@ import { lifecycleMixin } from './lifecycle'
 import { warn } from '../util/index'
 
 // 构造函数的入口
-function Vue (options) {
+function Vue(options) {
   if (process.env.NODE_ENV !== 'production' &&
     !(this instanceof Vue)
   ) {
@@ -21,7 +21,6 @@ function Vue (options) {
   }
   this._init(options)
 }
-
 // vm 的 _init() 方法，初始化 vm
 initMixin(Vue)
 // 响应式 $data/$props/$set/$delete/$watch
